@@ -33,7 +33,7 @@ The Ollama RAG Project is designed to assist students in engaging with their stu
 - **Chat History Handling:** Keeps track of previous messages to provide context-aware responses.
 - **Multi-Modal AI Responses:** Uses Ollama's local LLMs and OpenAI's GPT models.
 - **Special Reasoning with deepseek-r1:** Enhances retrieval and response generation through advanced reasoning capabilities.
-- **API Endpoints:** Exposes endpoints for document addition, query answering, chat interaction, translation, quiz generation, and summarization.
+- **API Endpoints:** Exposes endpoints for document addition, query answering, chat interaction, translation and summarization.
 
 ## Architecture
 
@@ -122,16 +122,6 @@ docker-compose up --build
   - `language`: Target language code
 - **Description:** Translates text into the specified language.
 
-### Quiz Generation
-
-- **Endpoint:** `/api/quizgen`
-- **Method:** `GET`
-- **Query Parameters:**
-  - `user_id`
-  - `document_id`
-  - `difficulty`: Difficulty level
-  - `n_questions`: Number of quiz questions
-- **Description:** Generates a quiz based on the retrieved document context.
 
 ### Summarize
 
