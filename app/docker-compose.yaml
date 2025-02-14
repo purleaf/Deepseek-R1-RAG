@@ -1,0 +1,30 @@
+services:
+  ai:
+    build:
+      context: ../ai
+      dockerfile: Dockerfile
+    ports:
+      - "2052:5005"
+    environment:
+      - PORT=5005
+    env_file: "../ai/.env"
+    depends_on:
+      db:
+        condition: service_healthy
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:11434" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    restart: always
+
+volumes:
+  ollama-data:
