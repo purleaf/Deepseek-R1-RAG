@@ -48,7 +48,7 @@ The project is organized into several services:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/ollama-rag-project.git
+   git clone https://github.com/purleaf/local_rag.git
    cd ollama-rag-project
    ```
 
