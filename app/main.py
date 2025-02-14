@@ -93,26 +93,6 @@ async def translate(
         raise HTTPException(status_code=500, detail="An unexpected error occurred")
 
 
-@app.get("/api/quizgen")
-async def quiz_gen(
-    user_id: str = Query(...),
-    document_id: str = Query(...),
-    difficulty: str = Query(...),
-    n_questions: int = Query(...),
-):
-    try:
-        collection_name = UUIDShortener.encode(f"{user_id}{document_id}")
-        quiz_generation = QuizGeneration()
-        rag_manager = VectorDBManager(collection_name=collection_name)
-        context = " ".join(rag_manager.collection.get()["documents"])
-        quiz = quiz_generation.generate_response(
-            context=context, difficulty=difficulty, n_questions=n_questions
-        )
-        return quiz
-    except ValueError as ve:
-        raise HTTPException(status_code=400, detail=str(ve))
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="An unexpected error occurred")
 
 
 @app.get("/api/summarize")
