@@ -10,7 +10,7 @@ from utils.db_helper import init_db, add_message, get_chat_history
 from utils.logger import Logger
 from ollama import Client
 app = FastAPI()
-logger = Logger("Brainhub-AI")
+logger = Logger("RAG-DB")
 
 
 @app.on_event("startup")

@@ -1,7 +1,7 @@
 import logging
 
 class Logger:
-    def __init__(self, name: str = "BrainHub-AI", log_level: int = logging.DEBUG):
+    def __init__(self, name: str = "RAG-DB", log_level: int = logging.DEBUG):
         # Create a logger
         self.logger = logging.getLogger(name)
         self.logger.setLevel(log_level)
