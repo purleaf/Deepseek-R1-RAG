@@ -1,16 +1,13 @@
 services:
   ai:
     build:
-      context: ../ai
+      context: .
       dockerfile: Dockerfile
     ports:
       - "2052:5005"
     environment:
       - PORT=5005
-    env_file: "../ai/.env"
-    depends_on:
-      db:
-        condition: service_healthy
+    env_file: ".env"
   ollama:
     image: ollama/ollama
     container_name: ollama

@@ -14,7 +14,7 @@ class ChatOllama:
                 model=self.model_name,
                 format=format,
             )
-            return response
+            return response.message.content
         except ConnectionError as e:
 
             return f"ConnectionError: {e}"

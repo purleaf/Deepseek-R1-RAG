@@ -134,7 +134,7 @@ class VectorDBManager:
         response_format = Response.model_json_schema()
         try:
             response = self.ollama_client.generate_response(messages=[system_prompt, human_prompt], format=response_format)
-            return json.loads(response.message.content)['answer']
+            return json.loads(response)['answer']
         except ConnectionError as e:
             self.logger.error(f"Connection error occurred: {e}")
             return f"ConnectionError: {e}"
